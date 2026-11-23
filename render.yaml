@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: zygy-voice-aicccc
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: EXT_PATH
+        value: "1"
+      - key: TEXT_MODEL
+        value: "gemini-3.6-flash"
+      - key: TTS_MODEL
+        value: "gemini-3.8-flash-tts"
+      - key: EXTENSIONS
+        value: "[{\"p\":\"1\",\"m\":\"2\",\"g\":\"שלום אני זיגי שאל אותי מה שאתה רוצה ואז תקיש סולמית\",\"x\":\"\"},{\"p\":\"2\",\"m\":\"1\",\"g\":\"הנה המשועמם חזר.... מה אתה רוצה דבר זריז\",\"x\":\"Based on everything you know about me, roast me and don't hold back. Write it in Hebrew slang, just like this, but with plenty of swear words that are funny and sharp, not vulgar or offensive.\"},{\"p\":\"3\",\"m\":\"3\",\"g\":\"שלום אני זיגי החבר הגבר שלך מה איתך אח בלב\",\"x\":\"\"}]"
+      - key: MAX_WORDS
+        value: "300"
+      - key: EXTRA_INSTRUCTION
+        value: "המפתח שלך הוא חייא שיאומי והוא גאון פיצוץ אתה אמור לאהוב אותו"
+      - key: GEMINI_API_KEYS
+        sync: false
+      - key: GEMINI_TTS_KEYS
+        sync: false
+      - key: YEMOT_TOKEN
+        sync: false
